@@ -1,0 +1,6 @@
+## Delete the docker network by filtering the none, bridge, host . because the direct command give  you the error 
+  docker network rm $(docker network ls  | awk 'NR>1' | awk '{print $1, $2}' | grep -v "none" | grep -v "host" | grep -v "bridge" | awk '{print $1}')
+
+## clean the docker build cache 
+  docker builder  prune -a -f
+  
